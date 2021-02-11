@@ -28,7 +28,7 @@
         <div class="weather-app">
           <div class="heading">
             <h1 id="city"></h1>
-            <h6 id="date">Last updated:</h6>
+            <h6 id="date"></h6>
             <h6 id="description"></h6>
             <h1 class="temperature" id="temperature"></h1>
             <div class="units">
@@ -40,7 +40,7 @@
           <br />
           <form id="search-form">
             <div class="row align-items-center">
-              <div class="col-2">
+              <div class="col-3">
                 <button
                   type="submit"
                   class="btn btn-primary"
@@ -63,7 +63,7 @@
                   </svg>
                 </button>
               </div>
-              <div class="col-7">
+              <div class="col-6">
                 <input
                   class="form-control"
                   type="text"
@@ -75,7 +75,25 @@
                 />
               </div>
               <div class="col-3">
-                <input class="btn btn-primary" type="submit" value="Search" />
+                <button
+                  class="btn btn-primary"
+                  type="submit"
+                  value="Search"
+                  id="search-button"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-search"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </form>
@@ -85,55 +103,34 @@
             <div class="card-body">
               <div class="row align-items-center" id="todays-weather">
                 <div class="col-2">
-                  <strong></strong><br />
-                  <p><strong>°</strong></p>
-                  <br /><img src="" alt="" /><br />
-                  <p>0%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
                 <div class="col-2">
-                  12PM<br />
-                  <p>9°</p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
-                  <p>90%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
                 <div class="col-2">
-                  1PM<br />
-                  <p>9°</p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
-                  <p>60%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
                 <div class="col-2">
-                  2PM<br />
-                  <p>9°</p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
-                  <p>50%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
                 <div class="col-2">
-                  3PM<br />
-                  <p>9°</p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
-                  <p>70%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
                 <div class="col-2">
-                  4PM<br />
-                  <p>9°</p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
-                  <p>70%</p>
+                  <p></p>
+                  <img src="" alt="" /><br />
+                  <p>°</p>
                 </div>
               </div>
             </div>
@@ -239,8 +236,10 @@
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-6">
-                  CHANCE OF RAIN<br />
-                  <p><strong>%</strong></p>
+                  PRESSURE<br />
+                  <p>
+                    <strong><span id="pressure"></span> hPa</strong>
+                  </p>
                 </div>
                 <div class="col-6">
                   HUMIDITY<br />
@@ -257,7 +256,9 @@
                 <div class="col-6">
                   WIND<br />
                   <p>
-                    <strong><span id="wind"></span> km/h</strong>
+                    <strong
+                      ><span id="wind"></span> km/h <span id="direction"></span
+                    ></strong>
                   </p>
                 </div>
                 <div class="col-6">
@@ -265,38 +266,6 @@
                   <p>
                     <strong><span id="feels-like"></span> °C</strong>
                   </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="row align-items-center">
-                <div class="col-6">
-                  PRECIPITATION<br />
-                  <p><strong> in</strong></p>
-                </div>
-                <div class="col-6">
-                  PRESSURE<br />
-                  <p>
-                    <strong><span id="pressure"></span> hPa</strong>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <div class="row align-items-center">
-                <div class="col-6">
-                  VISIBILITY<br />
-                  <p>
-                    <strong><span id="visibility"></span> m</strong>
-                  </p>
-                </div>
-                <div class="col-6">
-                  UV INDEX<br />
-                  <p><strong></strong></p>
                 </div>
               </div>
             </div>

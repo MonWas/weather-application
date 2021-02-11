@@ -28,12 +28,12 @@ h6::first-letter {
   text-transform: capitalize;
 }
 
-.weather-temperature .active {
+.units .active {
   color: rgb(33, 33, 33);
   cursor: default;
 }
 
-.weather-temperature .active:hover {
+.units .active:hover {
   text-decoration: none;
 }
 

@@ -42,14 +42,11 @@ function displayWeatherCondition(response) {
   document.querySelector("#sunset").innerHTML = formatHours(response.data.sys.sunset * 1000);
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+    response.data.wind.speed * 3.6);
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
   document.querySelector("#pressure").innerHTML = response.data.main.pressure;
-  document.querySelector("#visibility").innerHTML =
-    response.data.sys.visibility;
 }
 
 function displayTodaysWeather(response) {
@@ -76,9 +73,6 @@ function searchCity(city) {
 
   apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTodaysWeather);
-
-  apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
-  console.log(axios.get(apiUrl));
 }
 
 searchCity("Zurich");
