@@ -4,24 +4,28 @@
   margin-right: auto;
   padding-left: 15px;
   padding-right: 15px;
+  text-align: center;
   width: 100%;
+}
+
+.wrapper {
+  margin: 20px auto;
+  max-width: 600px;
 }
 
 .weather-app {
   background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
   border: 1px solid #dadde1;
   border-radius: 10px;
-  margin: 20px auto;
-  max-width: 600px;
   padding: 15px;
-}
-
-.heading {
-  text-align: center;
 }
 
 .card {
   background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+h6::first-letter {
+  text-transform: capitalize;
 }
 
 a {
