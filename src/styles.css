@@ -28,6 +28,15 @@ h6::first-letter {
   text-transform: capitalize;
 }
 
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
 a {
   text-decoration: none;
 }

@@ -28,11 +28,11 @@
         <div class="weather-app">
           <div class="heading">
             <h1 id="city"></h1>
-            <h6 id="date"></h6>
+            <h6 id="date">Last updated:</h6>
             <h6 id="description"></h6>
             <h1 class="temperature" id="temperature"></h1>
             <div class="units">
-              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="celsius-link" class="active">°C</a> |
               <a href="#" id="fahrenheit-link">°F</a>
             </div>
             <img id="icon" src="" alt="" />
@@ -83,14 +83,11 @@
           <div class="card">
             <h5 class="card-header">Today's Weather</h5>
             <div class="card-body">
-              <div class="row align-items-center">
+              <div class="row align-items-center" id="todays-weather">
                 <div class="col-2">
-                  <strong>Now</strong><br />
-                  <p><strong>9°</strong></p>
-                  <br /><img
-                    src="https://www.meteoswiss.admin.ch/etc/designs/meteoswiss/assets/images/icons/meteo/weather-symbols/20.svg"
-                    alt="very overcast with rain"
-                  /><br />
+                  <strong></strong><br />
+                  <p><strong>°</strong></p>
+                  <br /><img src="" alt="" /><br />
                   <p>0%</p>
                 </div>
                 <div class="col-2">
@@ -226,13 +223,13 @@
                 <div class="col-6">
                   SUNRISE<br />
                   <p>
-                    <strong><span id="sunrise"></span>AM</strong>
+                    <strong><span id="sunrise"></span></strong>
                   </p>
                 </div>
                 <div class="col-6">
                   SUNSET<br />
                   <p>
-                    <strong><span id="sunset"></span>PM</strong>
+                    <strong><span id="sunset"></span></strong>
                   </p>
                 </div>
               </div>
@@ -243,7 +240,7 @@
               <div class="row align-items-center">
                 <div class="col-6">
                   CHANCE OF RAIN<br />
-                  <p><strong>20%</strong></p>
+                  <p><strong>%</strong></p>
                 </div>
                 <div class="col-6">
                   HUMIDITY<br />
@@ -277,7 +274,7 @@
               <div class="row align-items-center">
                 <div class="col-6">
                   PRECIPITATION<br />
-                  <p><strong>0.5 in</strong></p>
+                  <p><strong> in</strong></p>
                 </div>
                 <div class="col-6">
                   PRESSURE<br />
@@ -299,7 +296,7 @@
                 </div>
                 <div class="col-6">
                   UV INDEX<br />
-                  <p><strong>Low 1</strong></p>
+                  <p><strong></strong></p>
                 </div>
               </div>
             </div>
