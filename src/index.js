@@ -60,7 +60,7 @@ function displayTodaysWeather(response) {
     <div class="col-2">
       <p>${formatHours(forecast.dt * 1000)}</p>
       <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-      <p class="today">${Math.round(forecast.main.temp)}°</p>
+      <p><span class="today">${Math.round(forecast.main.temp)}</span>°</p>
     </div>
     `;
   }
@@ -81,8 +81,8 @@ function displayWeeklyForecast(response) {
     weeklyForecast.innerHTML += `
     <div class="col-3"><strong>${formatDate(forecast.dt * 1000)}</strong></div>
     <div class="col-3"><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/></div>
-    <div class="col-3"><strong class="weekly">${Math.round(forecast.temp.day)}°</strong></div>
-    <div class="col-3"><p class="weekly">${Math.round(forecast.temp.night)}°</p></div>
+    <div class="col-3"><strong><span class="weekly">${Math.round(forecast.temp.day)}</span>°</strong></div>
+    <div class="col-3"><p><span class="weekly">${Math.round(forecast.temp.night)}</span>°</p></div>
     `;
   }
   document.querySelector("#visibility").innerHTML = response.data.current.visibility / 1000;
