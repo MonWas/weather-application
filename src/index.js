@@ -147,10 +147,11 @@ function convertToFahrenheit(event) {
   });
 
   let weekly = document.querySelectorAll(".weekly");
-  let currentTemp = item.innerHTML;
   weekly.forEach(function (item) {
+    let currentTemp = item.innerHTML;
     item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
   });
+
   celsiusLink.addEventListener("click", displayCelsiusTemperature);
   fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
 }
@@ -175,6 +176,7 @@ function convertToCelsius(event) {
     let currentTemp = item.innerHTML;
     item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
   });
+
   celsiusLink.removeEventListener("click", displayCelsiusTemperature);
   fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 }
