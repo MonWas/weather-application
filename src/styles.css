@@ -37,8 +37,12 @@ h6::first-letter {
   text-decoration: none;
 }
 
-.icon {
+.card#today img {
   width: 100%;
+}
+
+.card#weekly img {
+  width: 50%;
 }
 
 a {

@@ -98,45 +98,45 @@
             </div>
           </form>
           <br />
-          <div class="card">
+          <div class="card" id="today">
             <h5 class="card-header">Today's Weather</h5>
             <div class="card-body">
               <div class="row align-items-center" id="todays-weather">
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
                 <div class="col-2">
                   <p></p>
                   <img src="" alt="" class="icon" /><br />
-                  <p>°</p>
+                  <p class="temperature">°</p>
                 </div>
               </div>
             </div>
           </div>
           <br />
-          <div class="card">
+          <div class="card" id="weekly">
             <h5 class="card-header">Weekly Forecast</h5>
             <div class="card-body">
               <div class="row align-items-center" id="weekly-forecast">
@@ -155,15 +155,15 @@
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-6">
-                  SUNRISE<br />
+                  CLOUDINESS<br />
                   <p>
-                    <strong><span id="sunrise"></span></strong>
+                    <strong><span id="cloudiness"></span>%</strong>
                   </p>
                 </div>
                 <div class="col-6">
-                  SUNSET<br />
+                  DEW POINT<br />
                   <p>
-                    <strong><span id="sunset"></span></strong>
+                    <strong><span id="dew-point"></span>°</strong>
                   </p>
                 </div>
               </div>
@@ -173,9 +173,9 @@
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-6">
-                  PRESSURE<br />
+                  FEELS LIKE<br />
                   <p>
-                    <strong><span id="pressure"></span> hPa</strong>
+                    <strong><span id="feels-like"></span>°</strong>
                   </p>
                 </div>
                 <div class="col-6">
@@ -191,17 +191,51 @@
             <div class="card-body">
               <div class="row align-items-center">
                 <div class="col-6">
-                  WIND<br />
+                  PRESSURE<br />
                   <p>
-                    <strong
-                      ><span id="wind"></span> km/h <span id="direction"></span
-                    ></strong>
+                    <strong><span id="pressure"></span> hPa</strong>
                   </p>
                 </div>
                 <div class="col-6">
-                  FEELS LIKE<br />
+                  SUNRISE<br />
                   <p>
-                    <strong><span id="feels-like"></span> °C</strong>
+                    <strong><span id="sunrise"></span></strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-6">
+                  SUNSET<br />
+                  <p>
+                    <strong><span id="sunset"></span></strong>
+                  </p>
+                </div>
+                <div class="col-6">
+                  UV INDEX<br />
+                  <p>
+                    <strong><span id="uvi"></span></strong>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-6">
+                  VISIBILITY<br />
+                  <p>
+                    <strong><span id="visibility"></span> km</strong>
+                  </p>
+                </div>
+                <div class="col-6">
+                  WIND<br />
+                  <p>
+                    <strong><span id="wind"></span> km/h</strong>
                   </p>
                 </div>
               </div>
