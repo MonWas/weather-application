@@ -45,6 +45,10 @@ h6::first-letter {
   width: 50%;
 }
 
+div.card-body {
+  padding: 8px;
+}
+
 a {
   text-decoration: none;
 }
