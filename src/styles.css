@@ -37,6 +37,10 @@ h6::first-letter {
   text-decoration: none;
 }
 
+.icon {
+  width: 100%;
+}
+
 a {
   text-decoration: none;
 }

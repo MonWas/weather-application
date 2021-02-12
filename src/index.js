@@ -64,6 +64,27 @@ function displayTodaysWeather(response) {
     </div>
     `;
   }
+  let apiKey = "48be2d76f648061999ec29f411aadf83";
+  let latitude = response.data.city.coord.lat;
+  let longitude = response.data.city.coord.lon;
+  apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayWeeklyForecast);
+}
+
+function displayWeeklyForecast(response) {
+  let weeklyForecast = document.querySelector("#weekly-forecast");
+  weeklyForecast.innerHTML = null;
+  let forecast = null;
+
+  for (let i = 1; i < 7; i++) {
+    forecast = response.data.daily[i];
+    weeklyForecast.innerHTML += `
+    <div class="col-3"><strong>${formatDate(forecast.dt * 1000)}</strong></div>
+    <div class="col-3"><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/></div>
+    <div class="col-3"><strong>${Math.round(forecast.temp.day)}°</strong></div>
+    <div class="col-3">${Math.round(forecast.temp.night)}°</div>
+    `;
+  }
 }
 
 function searchCity(city) {
