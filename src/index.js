@@ -60,7 +60,7 @@ function displayTodaysWeather(response) {
     <div class="col-2">
       <p>${formatHours(forecast.dt * 1000)}</p>
       <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/>
-      <p>${Math.round(forecast.main.temp)}°</p>
+      <p class="today">${Math.round(forecast.main.temp)}°</p>
     </div>
     `;
   }
@@ -69,7 +69,6 @@ function displayTodaysWeather(response) {
   let longitude = response.data.city.coord.lon;
   apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&exclude=minutely,hourly&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayWeeklyForecast);
-  console.log(axios.get(apiUrl));
 }
 
 function displayWeeklyForecast(response) {
@@ -82,8 +81,8 @@ function displayWeeklyForecast(response) {
     weeklyForecast.innerHTML += `
     <div class="col-3"><strong>${formatDate(forecast.dt * 1000)}</strong></div>
     <div class="col-3"><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"/></div>
-    <div class="col-3"><strong>${Math.round(forecast.temp.day)}°</strong></div>
-    <div class="col-3">${Math.round(forecast.temp.night)}°</div>
+    <div class="col-3"><strong class="weekly">${Math.round(forecast.temp.day)}°</strong></div>
+    <div class="col-3"><p class="weekly">${Math.round(forecast.temp.night)}°</p></div>
     `;
   }
   document.querySelector("#visibility").innerHTML = response.data.current.visibility / 1000;
@@ -136,10 +135,24 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 
 function convertToFahrenheit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector(".temperature");
+  let temperatureElement = document.querySelector("#temperature");
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
   temperatureElement.innerHTML = Math.round((celsiusTemperature * 9) / 5 + 32);
+
+  let today = document.querySelectorAll(".today");
+  today.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+
+  let weekly = document.querySelectorAll(".weekly");
+  let currentTemp = item.innerHTML;
+  weekly.forEach(function (item) {
+    item.innerHTML = Math.round((currentTemp * 9) / 5 + 32);
+  });
+  celsiusLink.addEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.removeEventListener("click", displayFahrenheitTemperature);
 }
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
@@ -148,8 +161,22 @@ function convertToCelsius(event) {
   event.preventDefault();
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector(".temperature");
+  let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let today = document.querySelectorAll(".today");
+  today.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+
+  let weekly = document.querySelectorAll(".weekly");
+  weekly.forEach(function (item) {
+    let currentTemp = item.innerHTML;
+    item.innerHTML = Math.round(((currentTemp - 32) * 5) / 9);
+  });
+  celsiusLink.removeEventListener("click", displayCelsiusTemperature);
+  fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 }
 let celsiusTemperature = null;
 
